@@ -1,0 +1,19 @@
+Hash functions: CryptoJS provides several hash functions, including MD5, SHA-1, SHA-256, and SHA-512. These functions are used to generate message digests or hashes of data.
+
+Symmetric encryption and decryption: CryptoJS supports symmetric encryption and decryption using various algorithms such as AES, DES, and Blowfish.
+
+Password-based key derivation: CryptoJS includes functions for deriving encryption keys from passwords, using algorithms such as PBKDF2 and Scrypt.
+
+Digital signatures: CryptoJS provides functions for creating and verifying digital signatures, which can be used to ensure the authenticity and integrity of messages.
+
+Key exchange: CryptoJS supports key exchange algorithms such as Diffie-Hellman and Elliptic Curve Diffie-Hellman (ECDH), which can be used to establish secure communication channels between two parties.
+
+Random number generation: CryptoJS provides functions for generating cryptographically secure random numbers, which can be used for various purposes such as key generation and nonce generation.
+
+Message authentication codes (MACs): CryptoJS supports various MAC algorithms, such as HMAC, which can be used to verify the integrity of messages.
+
+Padding modes: CryptoJS includes several padding modes, such as PKCS7 and ISO/IEC 7816-4, which can be used to pad messages before encryption.
+
+Encoding and decoding: CryptoJS supports various encoding and decoding formats, such as Base64 and UTF-8, which can be used to convert data to and from different formats.
+
+Hash-based message authentication codes (HMACs): CryptoJS provides functions for generating HMACs, which are used to verify the integrity and authenticity of messages.

@@ -1,0 +1,17 @@
+Take Operator
+
+-> Emits only the first count values emitted by the source Observable
+
+---------------------------------------------------------
+
+TakeLast Operator
+
+->this will emit the last N values after the observable gets completed
+
+->using takeLast with an observable that never completes will result in an observable that never emits a value
+
+
+import { range, takeLast } from 'rxjs';
+
+const many = range(1, 100);
+this.many.pipe(takeLast(3)).subscribe(x=>console.log(x));

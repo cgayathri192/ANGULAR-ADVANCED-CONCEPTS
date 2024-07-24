@@ -1,0 +1,7 @@
+CryptoJS is a JavaScript library that provides cryptographic functionality such as encryption, decryption, hashing, and message authentication codes (MACs). It is an open-source library that can be used to secure communication between clients and servers, to store sensitive data securely, and to authenticate users.
+
+CryptoJS provides a variety of cryptographic algorithms such as AES, DES, Rabbit, SHA-256, SHA-512, MD5, HMAC, and PBKDF2. These algorithms can be used for different purposes such as encrypting passwords, securing data, and generating digital signatures.
+
+One of the advantages of CryptoJS is that it is a client-side library, which means that it can be used to encrypt data on the client-side before sending it to the server. This can provide an extra layer of security and can help protect data from unauthorized access or interception.
+
+Overall, CryptoJS is a powerful tool for securing data and communications in JavaScript applications, and it is widely used in the development of web and mobile applications

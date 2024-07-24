@@ -1,0 +1,120 @@
+JWT stands for JSON Web Token. It is a compact and URL-safe means of representing claims to be transferred between two parties. JWTs are used for authentication and authorization in web applications and APIs.
+
+A JWT consists of three parts: a header, a payload, and a signature. The header contains information about the type of token and the algorithm used for signing the token. The payload contains the claims or information that is being transmitted, such as the user ID, email address, or other relevant data. The signature is used to verify the integrity of the token and ensure that it has not been tampered with.
+
+JWTs are often used in authentication systems to represent a user's identity and to grant access to protected resources. When a user logs in to a web application, they are typically issued a JWT that contains their user ID and other relevant information. The JWT is then used to authorize subsequent requests to the application's APIs or resources, eliminating the need for the user to repeatedly enter their credentials.
+
+Overall, JWT is a secure and efficient way of transmitting data between parties and is widely used in modern web development.
+
+------------------------------------------------------------------------------------------------------------------------
+
+JWT in angular
+
+In Angular, JWTs can be used for implementing authentication and authorization in web applications. Here are the general steps involved in using JWT in Angular:
+
+1.Implement a login functionality that authenticates the user and returns a JWT token from the server.
+
+2.Store the JWT token in the browser's local storage or a cookie.
+
+3.Use an interceptor to attach the JWT token to every outgoing HTTP request to the server.
+
+4.On the server side, validate the JWT token and ensure that the user has the necessary permissions to access the requested resource.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+To use JWT in Angular, you can follow these steps:
+
+1.Install the jsonwebtoken library using npm:
+
+npm install jsonwebtoken
+
+--------------------------------------------------------------------------------------------------------------------------
+
+2.Create a service to handle JWTs. In this service, you can define methods for generating, verifying, and decoding JWTs. For example:
+
+import { Injectable } from '@angular/core';
+import * as jwt from 'jsonwebtoken';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class JwtService {
+  private secretKey = 'your-secret-key';
+
+  generateToken(payload: any): string {
+    return jwt.sign(payload, this.secretKey);
+  }
+
+  verifyToken(token: string): boolean {
+    try {
+      jwt.verify(token, this.secretKey);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  decodeToken(token: string): any {
+    return jwt.decode(token);
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+3.Use the JWT service in your application. For example, you can generate a token and store it in local storage when a user logs in:
+
+login(username: string, password: string): Observable<boolean> {
+  return this.http.post<any>('/api/login', { username, password }).pipe(
+    map(response => {
+      const token = this.jwtService.generateToken({ username });
+      localStorage.setItem('token', token);
+      return true;
+    }),
+    catchError(error => {
+      return of(false);
+    })
+  );
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+4.Use the token to authenticate API requests. You can create an HTTP interceptor to add the JWT to the Authorization header of every API request:
+
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { JwtService } from './jwt.service';
+
+@Injectable()
+export class JwtInterceptor implements HttpInterceptor {
+  constructor(private jwtService: JwtService) {}
+
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
+    const token = localStorage.getItem('token');
+    if (token && this.jwtService.verifyToken(token)) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
+    return next.handle(request);
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+5.Add the interceptor to the providers list in your app module:
+
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './jwt.interceptor';
+
+@NgModule({
+  imports: [HttpClientModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ]
+})
+export class AppModule { }
+
+

@@ -1,0 +1,42 @@
+npm install @ngrx/store --save
+
+(or)
+
+yarn add @ngrx/store
+
+(or)
+
+ng add @ngrx/store@latest
+-> will configure the ngrx to the angular app
+
+
+1.creation of actions
+
+import {createActin} from '@ngrx/store';
+
+emport const increment=
+createAction('[Counter Component]Increment'];
+
+
+2.Creatino of reducer
+
+import {createReducer, on } from 'ngrx/store/;
+import {increment,decrement, reset} from './counter.actions';
+
+export const initialState = 0;
+
+const _counterReducer = createReducer(initialState,
+	initialState,
+	on(increment, (state) => state + 1),
+	on(decrement, (state) => state - 1),
+	on(reset, (state) => 0)
+);
+
+export function counterReducer(state, action)
+{
+ return _counterReducer(state, action);
+}
+
+3.connecting store to component using dependency injection
+
+constructor{private store:Store <{count: number }>)

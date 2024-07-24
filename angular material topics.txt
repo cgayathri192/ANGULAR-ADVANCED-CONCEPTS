@@ -1,0 +1,44 @@
+Angular Material is a popular Material Design UI framework for building responsive web applications with Angular. Here is a list of some commonly used Angular Material components:
+
+
+MatToolbar: Toolbar with support for branding, navigation, and actions.
+
+MatSidenav: Side navigation panel that can be hidden or shown.
+
+MatCard: Material Design card for displaying content.
+
+MatButton: Material Design button with different styles and types.
+
+MatIconModule: Icon component for displaying icons from Material Icons.
+
+MatInputModule: Input component for handling user input with various types like text, number, date, etc.
+
+MatCheckbox: Checkbox component for handling boolean input.
+
+MatRadioGroup and MatRadioButton: Radio button components for selecting a single option from a group of options.
+
+MatSelect: Dropdown select component with support for filtering and custom options.
+
+MatSlider: Slider component for selecting a value from a range.
+
+MatMenu: Menu component for displaying a list of options in a dropdown.
+
+MatDialog: Dialog component for displaying modals and dialogs.
+
+MatSnackBar: Snack bar component for displaying notifications.
+
+MatTabs: Tab component for creating tabbed content.
+
+MatTable: Table component for displaying data in a tabular format with 
+sorting, filtering, and pagination.
+
+MatTooltip: Tooltip component for displaying additional information on hover.
+
+MatProgressSpinner: Progress spinner component for displaying loading 
+ndicators.
+
+MatStepper: Stepper component for guiding users through a series of steps.
+
+MatDatepicker: Datepicker component for selecting dates.
+
+MatNativeDateModule: Module for handling native date operations.

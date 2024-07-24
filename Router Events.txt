@@ -1,0 +1,91 @@
+Router events in Angular refer to the various stages of a navigation process that occur in an Angular application,
+such as the start of navigation, successful completion of navigation, cancelation of navigation, and occurrence of errors during navigation.
+
+These events are emitted by the Router class in Angular and can be subscribed to in your components to
+track the progress of navigation and take action based on different stages of navigation.
+
+Some of the commonly used router events include NavigationStart, NavigationEnd, NavigationCancel, NavigationError, and RoutesRecognized.
+By subscribing to these events, you can perform various tasks, such as showing a loading indicator, handling navigation errors, setting the page title, and more.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Uses of Router Events
+The use of Router events in Angular is to track the state of the router and perform actions based on the events.
+Some of the common use cases for Router events include:
+
+->Displaying a Loading Indicator: You can use the NavigationStart and NavigationEnd events to show and hide a loading indicator during the navigation process.
+					    This provides feedback to the user about the state of the navigation and makes the user experience more user-friendly.
+
+->Tracking Analytics: You can use the NavigationEnd event to track analytics about the navigation process,
+			    such as the number of times a user visits a specific route or the average time it takes to navigate to a specific route.
+
+->Updating the Document Title: You can use the NavigationEnd event to update the document title based on the target route.
+					 This makes it easier for users to understand the context of the page and makes it easier for search engines to index the page.
+
+->Redirecting the User: You can use the NavigationError event to redirect the user to a different route if an error occurs during the navigation process.
+				For example, if the user attempts to navigate to a route that is not found, you can redirect the user to a 404 page.
+
+->Protecting Routes: You can use the NavigationStart event to check the user's authentication status before
+			   navigation begins and prevent navigation to a protected route if the user is not authenticated.
+
+->Handling Route Resolvers: You can use the RoutesRecognized and NavigationEnd events to handle the result of a route resolver.
+				    For example, if the route resolver returns data that is required for the component associated with the route,
+				    you can use the events to access the data and pass it to the component.
+
+In summary, the use of Router events in Angular is to track the state of the router and perform actions based on the events.
+The events provide a flexible way to handle the navigation process and can be used to implement a variety of different features and functionality,
+such as displaying a loading indicator, tracking analytics, updating the document title, redirecting the user, protecting routes, and handling route resolvers.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+In Angular, there are several events related to the Router class that you can subscribe to.
+Here is a list of some commonly used router events:
+
+->NavigationStart:  Emitted when navigation starts.
+->NavigationEnd:    Emitted when navigation ends successfully.
+->NavigationCancel: Emitted when navigation is canceled.
+->NavigationError:  Emitted when navigation encounters an error.
+->RoutesRecognized: Emitted when the Router parses the URL and the routes are recognized.
+
+
+These events can be useful in several situations, such as:
+
+->Tracking the progress of navigation
+->Displaying a loading indicator during navigation
+->Handling navigation errors
+->Setting the page title based on the current route
+
+You can subscribe to these events by injecting the Router instance
+in your component and subscribing to the events observable:
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RoutesRecognized } from '@angular/router';
+
+@Component({
+  ...
+})
+export class MyComponent {
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        // handle navigation start event
+      }
+      if (event instanceof NavigationEnd) {
+        // handle navigation end event
+      }
+      if (event instanceof NavigationCancel) {
+        // handle navigation cancel event
+      }
+      if (event instanceof NavigationError) {
+        // handle navigation error event
+      }
+      if (event instanceof RoutesRecognized) {
+        // handle routes recognized event
+      }
+    });
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,42 @@
+In Angular, a subject is a special type of observable that allows you to broadcast data to multiple subscribers.
+Subjects are similar to regular observables,
+but they have the ability to multicast, meaning they can send their data to multiple subscribers.
+
+Here's an example of how you might use a subject in an Angular component:
+
+--------------------------------------------------------------------------------------------------------------
+
+import { Subject } from 'rxjs';
+
+@Component({
+  // ...
+})
+export class MyComponent {
+  dataSource = new Subject<number>();
+
+  constructor() {}
+
+  addData(data: number) {
+    this.dataSource.next(data);
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+In the example above, we have created a new subject called dataSource using the Subject class from the rxjs library.
+The next() method is used to send new data to the subscribers of the subject.
+
+To subscribe to the subject, you can use the subscribe() method and provide a callback function:
+
+--------------------------------------------------------------------------------------------------------------
+
+this.dataSource.subscribe(data => {
+  // Process the data
+});
+
+--------------------------------------------------------------------------------------------------------------
+
+The callback function passed to the subscribe() method will be called whenever new data is emitted by the subject.
+
+Subjects are useful for situations where you want to broadcast data to multiple subscribers, such as in a publish-subscribe pattern.
+They are a powerful tool for building reactive and event-driven applications in Angular.

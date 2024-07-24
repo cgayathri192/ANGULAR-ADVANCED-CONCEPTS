@@ -1,0 +1,51 @@
+View Child
+
+->is one of the most used decorators and has many important use cases
+
+->we can use @viewchild to inject a reference to existing component or DOM element
+
+->@viewchild gets loaded after ngafterviewinit() method
+	->do not try this oninit
+
+
+->In Angular, ViewChild is a decorator that allows a component to access a child component or a DOM element within its template. It is used to obtain a reference to a child component, directive or element and then interact with it programmatically.
+
+---------------------------------------------------------------------------------
+
+import { Component, ViewChild, ElementRef } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <h1>Parent Component</h1>
+    <app-child></app-child>
+    <button (click)="changeChildText()">Change Child Text</button>
+  `
+})
+export class ParentComponent {
+  @ViewChild(ChildComponent) childComponent: ChildComponent;
+  @ViewChild('childElement') childElement: ElementRef;
+
+  changeChildText() {
+    this.childComponent.changeText('New Text');
+    this.childElement.nativeElement.textContent = 'New Text';
+  }
+}
+
+@Component({
+  selector: 'app-child',
+  template: '<p #childElement>Child Component</p>'
+})
+export class ChildComponent {
+  @ViewChild('childElement') childElement: ElementRef;
+
+  changeText(text: string) {
+    this.childElement.nativeElement.textContent = text;
+  }
+}
+
+---------------------------------------------------------------------------------
+
+In this example, the ParentComponent has a child component ChildComponent and a button. ViewChild is used to obtain a reference to the child component and the ElementRef of a <p> element in the child template. The changeChildText method is called when the button is clicked, and it uses the references obtained through ViewChild to change the text in the child component and the DOM element.
+
+

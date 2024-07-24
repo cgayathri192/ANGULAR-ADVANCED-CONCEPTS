@@ -1,0 +1,45 @@
+ENUM means Enumeration
+
+In Angular, enum is used to define a set of named constants. It is a TypeScript feature that allows you to define a group of related values that can be assigned to a variable. Enums are used to make your code more readable and maintainable, especially when you have a set of related values that are used in different parts of your application.
+
+Here's an example of how to define an enum in Angular:
+
+--------------------------------------------------------------------------------------------------------------------------
+
+enum Color {
+  Red = 'RED',
+  Green = 'GREEN',
+  Blue = 'BLUE'
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+
+In this example, we define an enum called Color with three values: Red, Green, and Blue. Each value is assigned a string value that represents its name.
+
+You can use the enum in your Angular component or service like this:
+
+--------------------------------------------------------------------------------------------------------------------------
+
+import { Component } from '@angular/core';
+
+enum Color {
+  Red = 'RED',
+  Green = 'GREEN',
+  Blue = 'BLUE'
+}
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div [style.background-color]="color">{{color}}</div>
+  `
+})
+export class AppComponent {
+  color: Color = Color.Green;
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+
+In this example, we import the Color enum and use it in the AppComponent class. We assign the Green value to the color property and use it to set the background color of a div element.
+
+Enums can also be used with switch statements and for looping over their values. They are a powerful way to define a set of related constants in your application.

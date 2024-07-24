@@ -1,0 +1,40 @@
+Observables are used in reactive programming to handle asynchronous data streams.
+In order to convert an observable to normal data, you can use one of the following approaches:
+
+Using the toPromise() operator: This method converts an observable to a promise that resolves with the last emitted value from the observable. You can then use the await keyword to extract the resolved value from the promise. Here's an example:
+
+------------------------------------------------------------------------------------------------------------
+
+import { from } from 'rxjs';
+
+const observable$ = from([1, 2, 3]);
+const promise = observable$.toPromise();
+const data = await promise;
+console.log(data); // Output: 3
+
+------------------------------------------------------------------------------------------------------------
+
+Using the subscribe() method: This method subscribes to the observable and executes a callback function with the emitted values. You can then store the emitted values in an array or variable. Here's an example:
+
+------------------------------------------------------------------------------------------------------------
+
+import { from } from 'rxjs';
+
+const observable$ = from([1, 2, 3]);
+const data = [];
+observable$.subscribe(value => data.push(value));
+console.log(data); // Output: [1, 2, 3]
+
+------------------------------------------------------------------------------------------------------------
+
+import { from } from 'rxjs';
+import { toArray } from 'rxjs/operators';
+
+const observable$ = from([1, 2, 3]);
+const data = await observable$.pipe(toArray()).toPromise();
+console.log(data); // Output: [1, 2, 3]
+
+Using the toArray() operator: This method collects all emitted values from the observable and returns them as an array. Here's an example:
+
+------------------------------------------------------------------------------------------------------------
+

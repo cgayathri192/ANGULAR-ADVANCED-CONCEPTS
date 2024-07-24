@@ -1,0 +1,115 @@
+Angular component libraries
+
+1.NGX Bootstrap
+
+	->Alerts
+	->Accordion
+	->Collapse
+	->Pagination
+	->Datepicker
+	->Typehead
+	->Carousel
+
+2.Prime NG
+	
+	->SplitButton and Buttons component
+	->File Upload Component
+	->Lightbox, Dialog, Overlay Panel – Overlay components
+	->Message Alert using Messages and Growl
+	->Customized charts Bar, Radar, Pie, Line, Doughnut
+	->DataTable, DataList, Tree Table, DataGrid format
+
+3.NG Bootstrap
+	
+	->Carousel
+	->Datepicker
+	->Tooltip
+	->Typehead
+	->Modal
+	->Popover
+
+4.Clarity
+	
+	->Alerts
+	->Grid
+	->Login Page
+	->Progress Bars
+	->Passwords
+	->Radio Buttons
+	->Signposts
+	->Tree View
+	->Toggle Switches
+	->Wizards
+
+5.Fuel UI
+
+	->Fuel-UI is an Angular material component library that is built by Travel to provide a rich collection of directives, Angular 2 components library, animators, and pipes. Make use of a large set of Angular UI components to build a beautiful web application with the help of TextExpander, TimePicker, accordion, alert boxes, dropdown, scroller, modal popups, pagination, progress bar, sliders, and more.
+
+6.Sematic UI
+
+	->Accordion
+	->Button
+	->Dimmer
+	->Flag
+	->Form
+	->Input
+	->Loader
+	->Menu
+	->Message
+	->Rating
+	->Segment
+	->Select
+	->Sidebar
+
+7.Onsen UI
+
+	->Automatic Styling
+	->Lists and forms
+	->Tabs
+	->Side Menu
+	->Stack Navigation
+
+8.Angular Material
+
+	->Buttons
+	->Form controls
+	->Navigation
+	->Building blocks for presenting content
+	->Data tables
+	->Popups and modals
+	->Buttons, Chips, Icon, Progress Bar, Progress Spinner
+	->Create Popups like Dialog, Snackbar, Tooltip
+
+9.NG Lightning
+
+	->Breadcrumbs
+	->Buttons
+	->Badges
+	->Icons
+	->Datatables
+	->Ratings
+	->Lookups
+	->Spinners
+
+10.NG Zorro
+
+	->NG-ZORRO – an Ant UI based library designed to provide added advantages to Angular developers. This library is developed by Chinese, written in TypeScript, and comes with define types
+
+11.Angular Google Maps
+
+	->As the name suggests, this library enables you with the directives and services for Google Map Services implementation. Though the general standard Google Map library is available, when working with Angular projects, there are hassles
+
+12.Cloudinary Angular SDK
+
+	->This Angular library helps you to manage media assets on mobile and web platforms for Software as a Service. Storage, upload, manipulating, and delivery of media assets- all are available with the Cloudinary.
+
+13.Angular Augury
+
+	->Augury is a browser extension DevTool that helps to debug, editing, and diagnosing web applications. This library enables you to interact with the final end product, i.e. your Angular application, its directives, and components.
+
+14.Angular Epic Spinners
+
+	->This spinner library gives you options for each Angular component to render it anywhere in your application as an individual module.
+							
+	
+

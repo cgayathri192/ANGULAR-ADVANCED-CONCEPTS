@@ -1,0 +1,12 @@
+Operators
+
+-> Operators are very important part of RxJS
+-> RxJS library provides a lot of useful operators which helps us write clean code and reduce lot of effort in writing custom logic-which leads to many bugs actually!
+
+-> Operator is a pure function
+
+-> What is a pure function?
+	- a function will also return same value when passed with same input value
+	- has no side effects
+
+-> Operator takes in observables as input and output will also be an observable

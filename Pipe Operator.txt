@@ -1,0 +1,17 @@
+The pipe operator in RxJS (Reactive Extensions for JavaScript) is used to chain together multiple operators in a functional way.
+It allows you to pass the output of one operator as the input to the next, creating a series of transformations on the data.
+The pipe operator can simplify the code and make it more readable.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+import { map, filter } from 'rxjs/operators';
+
+source$.pipe(
+  filter(x => x % 2 === 0),
+  map(x => x * x)
+).subscribe(x => console.log(x));
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the filter operator is used to only allow even numbers to pass, and then the map operator is used to square those numbers.
+The result of this transformation is then passed to the subscribe method, which is used to observe the final values.

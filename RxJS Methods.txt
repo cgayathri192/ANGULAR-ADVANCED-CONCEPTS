@@ -1,0 +1,57 @@
+RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables
+that makes it easier to compose asynchronous or callback-based code.
+It provides an implementation of the Observable type,
+which is a special type of object that can be used to model push-based data streams.
+
+In Angular, RxJS is used to handle asynchronous data, such as data coming from a server over an HTTP request.
+The Angular framework provides a set of functions and methods for working with observables, known as the Observable API.
+
+Here is a list of some common RxJS methods that are frequently used in Angular applications:
+
+of: creates an observable that emits a sequence of values.
+
+from: creates an observable from an array, an iterable object, or a promise.
+
+interval: creates an observable that emits a sequence of integers at a specified interval.
+
+timer: creates an observable that emits a single value after a specified delay, or a sequence of values at a specified interval.
+
+throwError: creates an observable that emits an error.
+
+merge: creates an observable that emits the values from multiple observables.
+
+concat: creates an observable that emits the values from multiple observables, but only after the previous observable has completed.
+
+forkJoin: creates an observable that emits the last value from each of the input observables, and then completes.
+
+combineLatest: creates an observable that combines the latest values from multiple observables, and emits
+		   an updated value whenever any of the input observables emit a new value.
+
+zip: creates an observable that combines the values from multiple observables, and emits an array of
+     the combined values whenever all of the input observables have emitted a value.
+
+-----------------------------------------------------------------------------------------------------------
+
+map: The map operator transforms the values emitted by an observable by applying a function to each value.
+
+filter: The filter operator selectively emits values emitted by an observable based on a condition specified by a function.
+
+tap: The tap operator allows you to perform a side effect for each value emitted by an observable, such as logging the value.
+
+mergeMap: The mergeMap operator flattens a higher-order observable (an observable that emits observables) and emits the values emitted by the inner observable.
+
+switchMap: The switchMap operator is similar to mergeMap, but it unsubscribes from the previous inner observable when a new outer value is emitted.
+
+concatMap: The concatMap operator flattens a higher-order observable and emits the values emitted by the inner observables in order.
+
+debounceTime: The debounceTime operator delays the emission of values from an observable until a specified amount of time has elapsed since the last emission.
+
+distinctUntilChanged: The distinctUntilChanged operator only emits values from an observable if they are different from the previously emitted value.
+
+takeUntil: The takeUntil operator completes an observable when another observable emits a value.
+
+combineLatest: The combineLatest operator combines the most recent values emitted by multiple observables and emits the result.
+
+These are just a few examples of the many methods available in the RxJS library.
+I recommend looking at the official RxJS documentation for more information on the various methods and operators available,
+as well as examples of how to use them in your Angular applications.

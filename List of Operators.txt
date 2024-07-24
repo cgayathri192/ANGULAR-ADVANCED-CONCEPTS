@@ -1,0 +1,21 @@
+->Of Operator
+->from Operator
+
+Difference between from and of operator
+
+->From operator will create an observable form an array,an array,an array-like object, a promise, an iterable object, or an observable-like object.
+
+->of operator can create observable from a string, object or array
+  Specially useful when working with models or interfaces
+
+
+
+FromEvent
+
+->creates an observable that emits events of a specific type coming form the given event target.
+
+->we can bind target elements and methods to make sure we get observable as output
+
+->Angular Specific -> We will use ViewChild, NativeElement as target element and bind events
+
+

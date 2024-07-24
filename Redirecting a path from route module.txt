@@ -1,0 +1,8 @@
+Go to routing module and paste the "redirectTo:'path'" and "pathMatch:'full'" in the routes array
+
+Example:-
+{path:'',redirectTo:'login',pathMatch:'full'},
+
+the above code will redirect the home page to login path URL 'localhost:4200/login'
+
+this can be applied to different modules and URL can extended depending upon the redirecting path

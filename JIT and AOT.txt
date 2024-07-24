@@ -1,0 +1,19 @@
+JIT (Just-In-Time) and AOT (Ahead-Of-Time) are
+two different compilation options in Angular.
+
+JIT:
+
+Compiles your application in the browser at runtime.
+Provides fast development experiences and diagnostics, as the compiler is available at runtime.
+This is the default compilation mode when you use the
+			ng serve command.
+
+
+AOT:
+
+Compiles your application ahead of time, before the browser loads it.
+The compiled code is optimized for faster startup and better runtime performance, compared to JIT.
+This is the default compilation mode when you use the
+		ng build --prod
+
+In summary, AOT is used in production while JIT is used in development.

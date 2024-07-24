@@ -1,0 +1,31 @@
+1.Reactive Forms and Template-driven Forms
+
+2.Dependency Injection
+
+3.Directives and Pipes
+
+4.Observables and RxJS
+
+5.Services and State Management
+
+6.Lazy Loading and Preloading
+
+7.Angular Animations
+
+8.Routing and Navigation
+
+9.Internationalization (i18n) and Localization (l10n)
+
+10.Server-side Rendering (SSR) and Universal Applications
+
+11.Progressive Web Apps (PWA) and Service Workers
+
+12.Testing and Debugging Angular Applications
+
+13.Advanced Component Architecture and Design Patterns
+
+14.Modules and Code Splitting
+
+15.Angular Elements
+
+16.Schematics and Custom Builds.

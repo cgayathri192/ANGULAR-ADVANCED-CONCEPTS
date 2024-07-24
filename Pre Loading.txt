@@ -1,0 +1,45 @@
+Preloading in Angular refers to the process of loading parts of an application in advance,
+while the user is still interacting with the current view.
+This results in a faster experience for the user,
+as the application can load content in the background while the user is still engaged with the current view.
+
+Angular provides a preloading strategy that can be used to preload lazy-loaded modules,
+which are modules that are loaded on demand rather than being loaded up front with the main application.
+This allows for faster initial loading times, as well as reduced memory usage as the application only loads what is needed.
+By using preloading, Angular can help to optimize the performance of your application.
+
+-> Lazy Loading & Pre-Loading 
+
+Lazy loading and preloading can be used together to provide a balance between performance and functionality.
+Lazy loading can be used to load only the necessary parts of the application when they are needed,
+while preloading can be used to load parts of the application in the background to provide a faster experience for the user.
+By using both techniques, Angular can help to optimize the performance of your application while still providing the necessary functionality.
+
+->code for Pre-Loading
+In Angular, you can specify a preloading strategy for lazy-loaded modules using the RouterModule method preloadingStrategy.
+You can use one of the built-in preloading strategies, or you can create your own custom preloading strategy.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'lazy',
+    loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
+  },
+  // other routes here
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the PreloadAllModules preloading strategy is specified when configuring the router with RouterModule.forRoot().
+This will preload all lazy-loaded modules as soon as they are defined in the routes configuration.
+

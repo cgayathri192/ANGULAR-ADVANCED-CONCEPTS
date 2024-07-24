@@ -1,0 +1,24 @@
+1. Creation Operators:-
+	->of:- Creates an observable that emits a sequence of values.
+	->from:- Converts an array,iterable, or promise into an observable
+	->interval:- Creates an observable that emits incremental values at a specifies interval
+
+2. Transformation operators:-
+	->map:- Transform each emitted value by applying mapping function
+	->filter:- filters the value emitted by the source observable based on a predicate function
+	->pluck:- extracts a specific property value from each emitted object
+
+3. Combination Operators
+	->merge :- merges multiple observable into a single observable, emitting all values in parallel
+	->concat:- concatenates multiple observable, emitting values in a sequential manner
+	->forkJoin:- combines multiple observables and waits for all them to complete, then emits an array of the last emitted values from each observable
+
+4. Error handlinng operators:-
+	->catchError:- handles erros emitted by the source observable and returns a fallback value or alternative observable
+	->retry:- resubscribes to the source observable when an error occurs, allowing for a specified number of retry attempts.
+
+5. Utility operators:-
+	tap:- performs a side effect for each emitted value,without modifying the emitted values.
+	debouceTime:- delays the emissions from the source observable, discarding values emitted within a specified time frame and emitting the last value after the delay.
+	distinctUntilChanged:- ensures that only distinct values are emitted by the source observable, ignoring consecutive duplicate.
+

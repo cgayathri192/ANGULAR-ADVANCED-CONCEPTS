@@ -1,0 +1,7 @@
+FromEvent Operator
+
+-> Creates an Observable that emits events of a specific type coming from the given event target.
+
+-> We can bind Target Elements and methods to make sure we get Observable as output
+
+->Angular Specific -> We will use ViewChild, NativeElement as target element and bind events

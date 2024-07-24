@@ -1,0 +1,74 @@
+In Angular, HTTP error responses are handled by the HttpClient module, which provides a way to make HTTP requests and handle responses.
+
+When an HTTP request fails, the server sends an HTTP status code to indicate the type of error that occurred. Angular's HttpClient maps each status code to an HTTP error response object that contains information about the error.
+
+Here are some common HTTP error responses and how to handle them in Angular:
+
+400 Bad Request: This error occurs when the server receives an invalid request. To handle this error, you can use the catchError() operator from RxJS and return a custom error message to the user.
+
+Example:
+--------------------------------------------------------------------------------------------------------------------------
+
+this.httpClient.post('https://example.com/api', requestData).pipe(
+  catchError(error => {
+    if (error.status === 400) {
+      return throwError('Bad Request');
+    }
+    return throwError('Something went wrong');
+  })
+).subscribe(response => {
+  // Handle successful response
+});
+
+--------------------------------------------------------------------------------------------------------------------------
+401 Unauthorized: This error occurs when the user is not authenticated or does not have permission to access the requested resource. To handle this error, you can redirect the user to the login page or display an error message.
+
+Example:
+
+this.httpClient.get('https://example.com/api', requestData).pipe(
+  catchError(error => {
+    if (error.status === 401) {
+      this.router.navigate(['/login']);
+      return EMPTY;
+    }
+    return throwError('Something went wrong');
+  })
+).subscribe(response => {
+  // Handle successful response
+});
+
+--------------------------------------------------------------------------------------------------------------------------
+
+404 Not Found: This error occurs when the requested resource is not found on the server. To handle this error, you can display an error message to the user.
+
+Example:
+
+this.httpClient.get('https://example.com/api', requestData).pipe(
+  catchError(error => {
+    if (error.status === 404) {
+      return throwError('Resource not found');
+    }
+    return throwError('Something went wrong');
+  })
+).subscribe(response => {
+  // Handle successful response
+});
+
+--------------------------------------------------------------------------------------------------------------------------
+
+500 Internal Server Error: This error occurs when there is an error on the server. To handle this error, you can display an error message to the user.
+
+Example:
+
+this.httpClient.get('https://example.com/api', requestData).pipe(
+  catchError(error => {
+    if (error.status === 500) {
+      return throwError('Internal server error');
+    }
+    return throwError('Something went wrong');
+  })
+).subscribe(response => {
+  // Handle successful response
+});
+
+

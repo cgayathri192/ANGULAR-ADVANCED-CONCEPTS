@@ -1,0 +1,53 @@
+In Angular, form validators are used to validate the input values of form controls such as input fields, checkboxes, and dropdowns. Angular provides built-in validators such as required, minLength, maxLength, pattern, etc. However, you can also create custom form validators to suit your specific validation requirements. Here's how you can create custom form validators in Angular:
+
+Step 1: Create a custom validator function
+Create a function that will act as your custom validator. This function should take a FormControl or a FormGroup as input and return a validation error object if the validation fails, or null if the validation passes. The validation error object should have a key-value pair where the key is the error code and the value is true. Here's an example of a custom validator function that validates if an input value contains only numbers:
+
+----------------------------------------------------------------------------
+
+import { FormControl, ValidationErrors } from '@angular/forms';
+
+export function numbersOnlyValidator(control: FormControl): ValidationErrors | null {
+  const value = control.value;
+  const regex = /^[0-9]+$/;
+  const isValid = regex.test(value);
+  
+  return isValid ? null : { 'numbersOnly': true };
+}
+
+---------------------------------------------------------------------------
+
+Step 2: Attach the custom validator to a form control
+You can attach your custom validator to a form control using the Validators module provided by Angular. You can add it to the array of validators for a form control when you create a form control instance, or you can add it dynamically to an existing form control. Here's an example of how to use the numbersOnlyValidator in a form control:
+
+---------------------------------------------------------------------------
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { numbersOnlyValidator } from './custom-validators';
+
+@Component({
+  selector: 'app-my-form',
+  template: `
+    <form [formGroup]="myForm">
+      <input formControlName="myInput">
+      <div *ngIf="myForm.get('myInput').hasError('numbersOnly')">Input must contain only numbers</div>
+    </form>
+  `,
+})
+export class MyFormComponent implements OnInit {
+  myForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.myForm = this.fb.group({
+      myInput: new FormControl('', [Validators.required, numbersOnlyValidator])
+    });
+  }
+}
+
+---------------------------------------------------------------------------
+
+In the example above, the numbersOnlyValidator is added to the myInput form control as one of the validators, along with the required validator. The myForm.get('myInput').hasError('numbersOnly') is used to check if the numbersOnly error code is present in the myInput form control, and if so, display an error message.
+

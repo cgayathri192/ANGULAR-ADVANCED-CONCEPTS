@@ -1,0 +1,39 @@
+In Angular, an observable is an object that can be used to pass a stream of data between parts of an application.
+Observables are used to handle asynchronous data,
+such as data that is coming from a server over an HTTP request.
+
+Here's an example of how you might use an observable in an Angular component:
+
+-------------------------------------------------------------------------------------------------------------
+
+import { Observable, of } from 'rxjs';
+
+@Component({
+  // ...
+})
+export class MyComponent {
+  data$: Observable<any>;
+
+  constructor() {
+    this.data$ = of([1, 2, 3]);
+  }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+In the example above, we have created an observable called data$ using the of() operator from the rxjs library.
+The of() operator creates an observable that emits a series of values and then completes.
+
+To use the observable, you can subscribe to it and provide a callback function:
+
+-------------------------------------------------------------------------------------------------------------
+
+this.data$.subscribe(data => {
+  // Process the data
+});
+
+-------------------------------------------------------------------------------------------------------------
+
+The callback function passed to the subscribe() method will be called whenever a new value is emitted by the observable.
+
+Observables are a powerful tool for handling asynchronous data in Angular, and are used

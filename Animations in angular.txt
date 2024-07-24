@@ -1,0 +1,93 @@
+Animations in Angular are a way to add visually appealing transitions between states in your application. 
+Animations allow you to create dynamic effects, such as fading, sliding, or growing, as elements enter or leave the view.
+This can make your application feel more responsive and engaging to the user.
+
+Angular provides a powerful animation system based on the Web Animations API.
+This system allows you to define animations using a declarative approach,
+where you specify the animation styles and triggers in your component code.
+The Angular animation system then takes care of executing the animation for you.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+@Component({
+  selector: 'app-fade-in-out',
+  template: `
+    <div [@fadeInOut]="state">
+      <h1>Fade In/Out</h1>
+    </div>
+  `,
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void => *', animate(1000)),
+      transition('* => void', animate(1000))
+    ])
+  ]
+})
+export class FadeInOutComponent {
+  state = 'in';
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the animation is triggered by a component property state using the @fadeInOut trigger.
+The animation consists of two states, void and in, and two transitions between these states.
+The first transition, void => *, animates the component's opacity from 0 to 1 over the course of 1 second.
+The second transition, * => void, animates the component's opacity from 1 to 0 over the course of 1 second.
+
+This is just a simple example of what you can do with animations in Angular.
+You can also use animations to create more complex effects, such as choreographed animations or animations that respond to user interactions.
+The Angular animation system provides a lot of flexibility and power, allowing you to create animations that meet your specific needs.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+To use animations in Angular, you need to follow these steps:
+
+->Import the animation module: import { trigger, transition, style, animate } from '@angular/animations';.
+
+->Define your animation trigger using the trigger function: @trigger('myAnimation', [ ... ]).
+
+->Define the animation states using the transition function: transition('state1 => state2', [ ... ]).
+
+->Use the style function to specify the styles for each state of the animation: style({ ... }).
+
+->Use the animate function to specify the timing and easing of the animation: animate('timing-function duration', style({ ... })).
+
+->Apply the animation to an element in your template using the @ symbol and the name of your trigger: <div [@myAnimation]='state'></div>.
+
+->In your component, control the state of the animation using a property bound to the animation trigger: state = 'state1'.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+import { trigger, transition, style, animate } from '@angular/animations';
+
+@Component({
+  selector: 'app-animated-component',
+  template: `
+    <div [@fadeInOut]="state">
+      This content will fade in and out.
+    </div>
+  `,
+  animations: [
+    trigger('fadeInOut', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate('1s ease-in', style({ opacity: 1 }))
+      ]),
+      transition('* => void', [
+        animate('1s ease-out', style({ opacity: 0 }))
+      ])
+    ])
+  ]
+})
+export class AnimatedComponent {
+  state = 'in';
+
+  // ...
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------

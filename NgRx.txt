@@ -1,0 +1,119 @@
+What is NgRx?
+NgRx is a state management library for Angular applications. It is based on the principles of Redux,
+a popular state management library for JavaScript applications.
+
+In Angular, NgRx provides a way to manage the state of your application in a centralized and predictable way.
+The state is stored in a single store, which can be accessed and updated by multiple components.
+This makes it easier to manage complex state changes, as well as to debug, test, and optimize your application.
+
+NgRx uses a combination of actions, reducers, and effects to manage state changes in your application.
+Actions represent events that occur in your application, such as user interactions or data loading.
+Reducers are pure functions that take the current state and an action, and return a new state.
+Effects are used to manage side effects, such as making HTTP requests or updating the local storage.
+
+With NgRx, you can easily manage complex state changes, such as asynchronous data loading,
+and handle errors and edge cases in a consistent and centralized way.
+Additionally, NgRx provides a powerful set of tools for debugging, testing, and performance optimization.
+
+In summary, NgRx is a popular state management library for Angular applications that provides a
+centralized and predictable way to manage the state of your application.
+It uses a combination of actions,reducers, and effects to manage state changes,
+and provides a set of tools for debugging, testing, and performance optimization.
+
+
+Here is a brief overview of how to use @ngrx in an Angular application:
+
+1.Install the @ngrx libraries: To use @ngrx in an Angular application,
+you first need to install the @ngrx libraries.
+You can install the libraries using npm:
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+npm install @ngrx/store @ngrx/effects @ngrx/store-devtools
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+2.Create a store: To create a store in your Angular application, you need to define the initial state of your application,
+as well as the reducers that will manage the state.
+Here is an example of a simple store
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+import { Action, createReducer, on } from '@ngrx/store';
+
+export interface State {
+  count: number;
+}
+
+const initialState: State = {
+  count: 0
+};
+
+const counterReducer = createReducer(
+  initialState,
+  on(increment, state => ({ ...state, count: state.count + 1 })),
+  on(decrement, state => ({ ...state, count: state.count - 1 }))
+);
+
+export function reducer(state: State | undefined, action: Action) {
+  return counterReducer(state, action);
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+3.Create and dispatch actions: To update the state, you need to dispatch actions.
+You can create actions using the @ngrx/store package. Here is an example of a simple action:
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+import { createAction, props } from '@ngrx/store';
+
+export const increment = createAction('[Counter] Increment');
+export const decrement = createAction('[Counter] Decrement');
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+4.Use selectors: To retrieve specific parts of the state, you can use selectors.
+Selectors allow you to extract and transform parts of the state in an efficient and composable way. Here is an example of a simple selector:
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+
+export const selectCounter = createFeatureSelector<State>('counter');
+
+export const selectCount = createSelector(
+  selectCounter,
+  (state: State) => state.count
+);
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5.Connect the store to your components: Finally, you need to connect the store to your components.
+You can use the useSelector and useDispatch hooks to access the state and dispatch actions in your components.
+Here is an example of a simple component that uses the store:
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+import { useSelector, useDispatch } from '@ngrx/store';
+import { increment, decrement } from './counter.actions';
+import { selectCount } from './counter.selectors';
+
+export function CounterComponent() {
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+    </div>
+  );
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+

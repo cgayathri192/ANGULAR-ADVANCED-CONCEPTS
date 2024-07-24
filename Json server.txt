@@ -1,0 +1,40 @@
+1.Install JSON Server 
+	->Since JSON Server is available as an NPM package,
+	  we can perform the installation by using the Node.js package manager.
+
+command ->		npm install json-server
+
+2.Create a sample json file with data
+
+JSON Server will take a JSON file from your main project folder and
+turn it into a RESTful database with all the right routes.
+It can even do things like search queries.
+
+I have created a json file db.json inside my newly created project
+
+
+3.Running the server
+it can done in two ways.
+
+Direct Command execution
+	->Start JSON server by executing the following command
+	->json-server –watch db.json
+
+Adding json file manually in package.json
+	->In package.json, add the below code to run json-server with short code.
+	->"json:server": "json-server --watch db.json",
+	->now run the server with command (npm run json:server)
+
+4.Your JSON Server will be running on port 3000.
+  The below data will be shown in the terminal
+
+Resources
+http://localhost:3000
+
+ 
+Now you can click on the posts link in the page,
+which will show the JSON data given in db.json
+file now that we have our server and API running.
+
+Test it with a tool like POSTMAN.
+Initiate a HTTP GET request to http://localhost:3000/posts

@@ -1,0 +1,36 @@
+In Angular, @HostListener is a decorator that is used to listen to events on the host element of a directive or a component. The host element refers to the DOM element to which the directive or component is attached. @HostListener allows you to define event handlers within your directive or component's code, which will be executed when the specified event occurs on the host element.
+
+The syntax for using @HostListener is as follows:
+
+----------------------------------------------------------------------------
+
+@HostListener(eventName: string, args?: string[])
+
+----------------------------------------------------------------------------
+
+where eventName is the name of the event you want to listen for, and args (optional) is an array of arguments to be passed to the event handler function.
+
+Here's an example of how you can use @HostListener in an Angular directive:
+
+---------------------------------------------------------------------------
+
+import { Directive, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[myDirective]'
+})
+export class MyDirective {
+  constructor() { }
+
+  @HostListener('click', ['$event'])
+  onClick(event: Event): void {
+    console.log('Clicked!', event);
+    // Your logic here
+  }
+}
+
+---------------------------------------------------------------------------
+
+In the example above, @HostListener is used to listen for a click event on the host element, and the onClick method is the event handler that will be executed when the click event occurs. The $event parameter is used to pass the event object to the event handler function, which can be used to access event details such as target element, event type, etc.
+
+---------------------------------------------------------------------------

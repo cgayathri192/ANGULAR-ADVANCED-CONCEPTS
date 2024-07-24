@@ -1,0 +1,59 @@
+1.Inject the Router object in your component's constructor
+
+-------------------------------------------------------------------------------------------------------------
+
+constructor(private router: Router) {}
+
+-------------------------------------------------------------------------------------------------------------
+
+2.In the component's ngOnInit lifecycle hook, subscribe to the Router's events property:
+
+-------------------------------------------------------------------------------------------------------------
+
+ngOnInit() {
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationStart) {
+      // Perform actions when NavigationStart event is fired
+    }
+  });
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+3.In the if block, you can perform actions that you want to execute when the NavigationStart event is fired.
+  For example, you can show a loading spinner:
+
+-------------------------------------------------------------------------------------------------------------
+
+ngOnInit() {
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationStart) {
+      this.loading = true;
+    }
+  });
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+4.To stop the subscription, you can use the ngOnDestroy lifecycle hook:
+
+-------------------------------------------------------------------------------------------------------------
+
+private subscription: Subscription;
+
+ngOnInit() {
+  this.subscription = this.router.events.subscribe(event => {
+    if (event instanceof NavigationStart) {
+      this.loading = true;
+    }
+  });
+}
+
+ngOnDestroy() {
+  this.subscription.unsubscribe();
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
